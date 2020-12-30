@@ -4,11 +4,10 @@
     Legends is an multiplayer application that takes a team of 5 champions from one user to duel another users team. 
 
     The winner is based off the sum of champion statistics. Which ever team has the highest sum on their team will have destroyed the 
-
 opponents nexsus.
 
     Sign up and create an User Account!
-    Log in if you already have account!
+    Log in if you already have an account!
     Create a Team of Champions!
     Duel other Users!
 
