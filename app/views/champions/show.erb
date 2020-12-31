@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel=”icon” type="image/x-icon" href=”/images” />
+</head>
+<body>
+
+<h2><%=@champ.Name%></h2><br>
+
+<h3><%=@champ.Title.upcase%></h3>
+
+<img height="600px" src="/images/champ_img/<%=@champ.id%>.jpg">
+
+
+<div style="position:relative; left:350px; bottom:625px;">
+    <ul>
+        <% @stats.each do |k,v|%><%="#{k}"%>: <%="#{v}"%> <br> 
+            <% end %>
+    </ul> 
+        <a href="/champions" class="waves-effect waves-light btn">Champions List</a>
+        <a href="/teams" class="waves-effect waves-light btn">My Teams</a>
+</div>
+
+</body>
+</html>
+

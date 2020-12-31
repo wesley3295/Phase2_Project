@@ -1,0 +1,7 @@
+<h3> Champions List </h3>
+<% Champion.all.each do |champ| %>
+<ul>
+    <li><%= champ.id %>: <a href= "/champions/<%= champ.id %>"><%= champ.Name %></a> </li>
+</ul>
+    <% end %>
+
