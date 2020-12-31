@@ -1,0 +1,17 @@
+
+
+
+
+<p> <%= @user.username %>'s teams:
+    <% Team.all.collect do |team| 
+        if team.user_id  == @user.id %>
+        <div>
+            <a href='/teams/<%= "#{team.id}" %>'><%= team.team_name %>
+        </div>
+
+        <% end %> 
+
+    <% end %>
+</p>
+
+

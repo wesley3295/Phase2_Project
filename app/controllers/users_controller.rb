@@ -13,11 +13,12 @@ class UsersController < ApplicationController
             redirect "/signup"
         end
     end
+
     
     get '/login' do
         erb :'users/login'
     end
-
+    
     post '/login' do
         user = User.find_by_username(params[:user][:username])
         if user && user.authenticate(params[:user][:password])
@@ -27,10 +28,21 @@ class UsersController < ApplicationController
             redirect '/login'
         end
     end
-        
+    
     get '/logout' do
         logout
         redirect '/login'
     end
-
+    
+    get '/users' do
+        @users = User.all
+        erb :'users/index'
+    end
+    
+    get '/users/:id' do
+        @user = User.find_by_id(params[:id])
+        erb :'users/show'
+    end
+    
+    
 end

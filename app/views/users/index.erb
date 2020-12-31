@@ -1,0 +1,7 @@
+<h3>Legends! User List</h3>
+
+    <% @users.each do |user|%>
+<ul>
+        <li><a href="/users/<%= user.id %>"><%= user.username %></li>
+</ul>
+    <% end %>
