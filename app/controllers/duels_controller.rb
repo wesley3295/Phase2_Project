@@ -1,0 +1,3 @@
+class DuelsController < ApplicationController
+
+end
