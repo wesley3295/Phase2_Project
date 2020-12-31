@@ -1,0 +1,26 @@
+<h1>Edit: <%= @team.team_name %><h1>
+
+
+<form action="/teams/<%= @team.id %>" method="post">
+    <input type="hidden" name="_method" value="patch">
+      <div class="input-field">
+          <label for="team_name">Team Name</label>
+          <input id="team_name" name="user[team_name]" value="<%= @team.team_name %>" type="text" class="validate">
+      </div>
+<%Champion.all.each do |champ|%>
+          <ul style="position:relative; column-count: 10; column-rule: dotted 1px #333; list-style-type: none;">      
+                      
+                  <div class="form-row">    
+                        <label  style="color:black" class="container"><%=champ.Name%>     
+                              <input style="position:relative;" value="<%=champ.id%>" type="checkbox" name="user[champion_ids][]" >
+                                    <span class="checkmark"></span>     
+                        </label>     
+                  </div>     
+            </ul>
+<%end%>   
+          <input type="submit" value="Update Team" class="btn">
+</form>
+                         
+
+
+
