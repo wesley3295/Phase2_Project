@@ -1,0 +1,59 @@
+<h3><%= @team.team_name %>:</h3>
+<h6>Select a champion to see their stats:</h6>
+
+<p>
+    <% @team.champions.collect do |champ| %>
+    
+</p>
+    <% end %>
+<div style="position: absolute; left: 3%; top: 20%;">
+<table>   
+<tr>     
+<th><a href= "/champions/<%= @team.champions[0].id %>"><%= @team.champions[0].Name %></a></th>     
+<th><a href= "/champions/<%= @team.champions[1].id %>"><%= @team.champions[1].Name %></a></th>     
+<th><a href= "/champions/<%= @team.champions[2].id %>"><%= @team.champions[2].Name %></a></th>     
+<th><a href= "/champions/<%= @team.champions[3].id %>"><%= @team.champions[3].Name %></a></th>     
+<th><a href= "/champions/<%= @team.champions[4].id %>"><%= @team.champions[4].Name %></a></th>
+</tr>
+<tr>
+<td><img height="600px" src="/images/champ_img/<%= @team.champions[0].id %>.jpg"></td>
+<td><img height="600px" src="/images/champ_img/<%= @team.champions[1].id %>.jpg"></td>
+<td><img height="600px" src="/images/champ_img/<%= @team.champions[2].id %>.jpg"></td>
+<td><img height="600px" src="/images/champ_img/<%= @team.champions[3].id %>.jpg"></td>
+<td><img height="600px" src="/images/champ_img/<%= @team.champions[4].id %>.jpg"></td>
+</tr>     
+</table>
+</div>
+
+<div style="position: absolute; left: 3%; top: 95%;">
+<h3> Choose a team to duel with!: </h3>
+    <% @teams.collect do |team| 
+        if team.user_id  == @user.id %>
+        <div>
+            
+         <form action="/duel" method="post">
+         <input type="hidden" name="enemy_team" value="<%= @team.id %>">
+            <label>
+                <input name="current_user_team" value="<%= team.id %>" type="checkbox" class="filled-in"  />
+            <span style="color: black;"><%= team.team_name %></span>
+            <label>
+             
+            </label>
+        <% end %> 
+        <% end %>
+            
+       
+        </div>
+        <div style="position: absolute; left: 60%; top: 50%;" >
+                <input type="submit" value="Duel Now!" class="btn-large">  
+        </div> 
+        </form>
+         </div>
+
+                
+            
+
+
+   
+    
+   
