@@ -16,12 +16,13 @@ class UsersController < ApplicationController
 
     
     get '/login' do
+        redirect_if_logged_in
         erb :'users/login'
     end
     
     post '/login' do
         user = User.find_by_username(params[:user][:username])
-        if user && user.authenticate(params[:user][:password])
+        if user && user.authenticate(params[:user][:password]) && user.email == params[:user][:email]
             session[:user_id] = user.id
             redirect "/teams"    
         else
@@ -36,6 +37,7 @@ class UsersController < ApplicationController
     
     get '/users' do
         @users = User.all
+       
         erb :'users/index'
     end
     
