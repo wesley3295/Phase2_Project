@@ -16,8 +16,7 @@ class ApplicationController < Sinatra::Base
   helpers do
 
     def current_user
-      @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
-      
+      @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id] 
     end
     
     def logged_in?
@@ -26,6 +25,14 @@ class ApplicationController < Sinatra::Base
 
     def logout
       session.clear
+    end
+
+    def redirect_if_logged_in
+      redirect '/teams' if logged_in?
+    end
+
+    def redirect_if_logged_in
+      redirect '/teams' if logged_in?
     end
     
   end
