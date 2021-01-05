@@ -10,7 +10,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :welcome
+      erb :welcome
   end
 
   helpers do
@@ -33,8 +33,6 @@ class ApplicationController < Sinatra::Base
 
     def redirect_if_logged_in
       redirect '/teams' if logged_in?
+      end
     end
-    
-  end
-
 end

@@ -2,26 +2,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel=”icon” type="image/x-icon" href=”/images” />
 </head>
 <body>
 
 <h2><%=@champ.Name%></h2><br>
 
 <h3><%=@champ.Title.upcase%></h3>
+<img width="330px" height="600px" src="/images/champ_img/<%=@champ.id%>.jpg">
 
-<img height="600px" src="/images/champ_img/<%=@champ.id%>.jpg">
 
 
-<div style="position:relative; left:350px; bottom:625px;">
+<div style="position:relative; left:350px; bottom:600px;">
     <ul>
         <% @stats.each do |k,v|%><%="#{k}"%>: <%="#{v}"%> <br> 
             <% end %>
     </ul> 
-        <a href="/champions" class="waves-effect waves-light btn">Champions List</a>
-        <a href="/teams" class="waves-effect waves-light btn">My Teams</a>
+        <a href="/champions" class="waves-effect waves-light btn" style="background-color: rgb(158,144,109);">Champions List</a>
+        <a href="/teams" class="waves-effect waves-light btn" style="background-color: rgb(158,144,109);">My Teams</a>
 </div>
-
+<style>
+body {
+background-color: rgb(51, 51, 51);
+color: rgb(158,144,109);
+}
+</style>
 </body>
 </html>
 

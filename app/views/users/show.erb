@@ -1,17 +1,37 @@
 
 
-
-
-<p> <%= @user.username %>'s teams:
+<div style="position: absolute; left: 43%; top: 20%;">
+<h3 style="position: relative; background-color: rgb(158,144,109); width: 110%; border-radius: 70px; text-align: center; left: -25%;">Select a Team to Duel with!</h3>
+<div id="rectangle" style="background-color: rgb(158,144,109)">
+<table style="">
+<tr>
+<th style="padding: 3px; text-align: center; color: rgb(55, 55, 55)">Teams</th>
+</tr>
+<tr>
     <% Team.all.collect do |team| 
         if team.user_id  == @user.id %>
-        <div>
-            <a href='/teams/<%= "#{team.id}" %>'><%= team.team_name %>
-        </div>
-
-        <% end %> 
-
+<th style="padding: 3px; text-align: center;">
+    
+        <% i = 0%>
+            <%while i < Team.all.length%>
+                    <a style="color: black;" href= "/teams/<%=team.id%>"><%= team.team_name %></a><br>
+                <%i += 1%>
+            <%break %>
     <% end %>
-</p>
+    <% end %> 
 
+<% end %>
+</th>
+</tr>
+</table>
+</div>
+</div>
+<style>
+body {
+    background-image: url('/images/champ_img/league1.png');
+    background-size: 100% 103%;
+   
+}
+</style>
+    
 

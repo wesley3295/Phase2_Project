@@ -10,10 +10,12 @@
     <title>LegendsProject</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    	<link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
 
+<link rel=”icon” type="image/x-icon" href=”/images” />
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
@@ -27,12 +29,12 @@
         <li><a href="/login">Login</a></li>
           <li><a href="/signup">Signup</a></li>
         <% else %>
-          <li><a href="/users">Users</a></li>
-          <li><a href="/logout">Logout</a></li>
-          <li><a href="/champions">Champions</a></li>
+          <li><a href="/users">DUEL!</a></li>
           <li><a href="/teams">My Teams</a></li>
           <li><a href="/teams/new">Create Team</a></li>
-          <li><a href="/duels">DUEL!</a></li>
+          <li><a href="/champions">Champions</a></li>
+          <li><a href="/logout">Logout</a></li>
+          
         <% end %>
       </ul>
     </div>
@@ -49,5 +51,22 @@
       <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
       <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
     <![endif]-->
+    <%if logged_in?%>
+<%@user_wins = []%>
+    <%@user_loses = []%>
+    <%@user = current_user%>
+    <%@user.teams.collect do |team|%>
+     <% @user_wins << team.wins%>
+     <% @user_loses << team.loses%>
+     <%end%>
+    <div  style="width: 5%; position: absolute; top: 9px; left: 90%">
+    <table >
+            <tr>
+                <td><%=current_user.username%> </td>
+                <td>W:<%=@user_wins.sum%>L:<%=@user_loses.sum%></td>
+            </tr>
+    </table>
+</div>
+<%end%>
   </body>
 </html>

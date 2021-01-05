@@ -1,7 +1,166 @@
-<h3> Champions List </h3>
-<% Champion.all.each do |champ| %>
-<ul>
-    <li><%= champ.id %>: <a href= "/champions/<%= champ.id %>"><%= champ.Name %></a> </li>
-</ul>
-    <% end %>
+<div  style="width: 100%; height: 100%; overflow-x: hidden;">
 
+<h3 style="position:absolute; top: 10%; left: 35%;"> Champions List </h3>
+      <div>
+      <table style="width: 15%; position: absolute; top: 20.75%; left: 0%;">
+      
+            <%@champs_19 = Champion.all[0,19]%>
+                  <%@champs_19.collect do |champ|%> 
+                        <tr style="padding: 0px; border: 1px solid rgb(51, 51, 51);">
+                              <th style= "padding: 0px; text-align: center;">
+                                    <a href="/champions/<%=champ.id%>"><%=champ.Name%></a>
+                           
+                             </th>
+                        </tr>
+                        <tr>
+                              <td style="text-align: center;"><img src="/images/champ_img/<%=champ.id%>.jpg" width="50" height="100"></td>
+                        </tr>
+                  <%end%>
+     
+      </table>
+      </div>
+      
+      <div>
+      <table style="width: 15%; position: absolute; top: 20.75%; left: 11.5%;">
+      
+            <%@champs_20 = Champion.all[20,19]%>
+                  <%@champs_20.collect do |champ|%>   
+                        <tr style="padding: 0px; border: 1px solid rgb(51, 51, 51);">
+                              <th style="padding: 0px; text-align: center;">
+                                     <a href="/champions/<%=champ.id%>"><%=champ.Name%></a>
+                                 
+                              </th>
+                        </tr>
+                         <tr>
+                              <td style="text-align: center;"><img src="/images/champ_img/<%=champ.id%>.jpg" width="50" height="100"></td>
+                        </tr>
+                  <%end%>
+      
+      </table>
+      </div>
+
+      <div>
+      <table style="width: 15%; position: absolute; top: 20.75%; left: 22.5%;">
+      
+
+            <%@champs_40 = Champion.all[40,19]%>
+                  <%@champs_40.collect do |champ|%>    
+                        <tr style="padding: 0px; border: 1px solid rgb(51, 51, 51);">
+                              <th style="padding: 0px;  text-align: center;">
+                                    <a href="/champions/<%=champ.id%>"><%=champ.Name%></a>
+                                 
+                              </th>
+                        </tr>
+                         <tr>
+                              <td style="text-align: center;"><img src="/images/champ_img/<%=champ.id%>.jpg" width="50" height="100"></td>
+                        </tr>
+                  <%end%>
+      
+      </table>
+      </div>
+
+      <div>
+      <table style="width: 15%; position: absolute; top: 20.75%; left: 33.5%;">
+      
+
+            <%@champs_60 = Champion.all[60,19]%>
+                  <%@champs_60.collect do |champ|%>    
+                        <tr style="padding: 0px; border: 1px solid rgb(51, 51, 51);">
+                              <th style="padding: 0px; text-align: center;">
+                                    <a href="/champions/<%=champ.id%>"><%=champ.Name%></a>
+                                 
+                              </th>
+                        </tr>
+                         <tr>
+                              <td style="text-align: center;"><img src="/images/champ_img/<%=champ.id%>.jpg" width="50" height="100"></td>
+                        </tr>
+                  <%end%>
+      
+      </table>
+      </div>
+
+      <div>
+      <table style="width: 15%; position: absolute; top: 20.75%; left: 45.5%;">
+      
+            <%@champs_80 = Champion.all[80,19]%>
+                  <%@champs_80.collect do |champ|%>    
+                        <tr style="padding: 0px; border: 1px solid rgb(51, 51, 51);">
+                              <th style="padding: 0px;  text-align: center;">
+                                     <a href="/champions/<%=champ.id%>"><%=champ.Name%></a>
+                                 
+                              </th>
+                        </tr>
+                         <tr>
+                              <td style="text-align: center;"><img src="/images/champ_img/<%=champ.id%>.jpg" width="50" height="100"></td>
+                        </tr>
+                  <%end%>
+      
+      </table>
+      </div>
+
+      <div>
+      <table style="width: 15%; position: absolute; top: 20.75%; left: 57.5%;">
+      
+            <%@champs_100 = Champion.all[100,19]%>
+                  <%@champs_100.collect do |champ|%>    
+                        <tr style="padding: 0px; border: 1px solid rgb(51, 51, 51);">
+                              <th style="padding: 0px; text-align: center;">
+                                     <a href="/champions/<%=champ.id%>"><%=champ.Name%></a>
+                                 
+                              </th>
+                        </tr>
+                         <tr>
+                              <td style="text-align: center;"><img src="/images/champ_img/<%=champ.id%>.jpg" width="50" height="100"></td>
+                        </tr>
+                  <%end%>
+      
+      </table>
+      </div>
+
+      <div>
+      <table style="width: 15%; position: absolute; top: 20.75%; left: 69.5%;">
+      
+            <%@champs_120 = Champion.all[120,19]%>
+                  <%@champs_120.collect do |champ|%>    
+                        <tr style="padding: 0px; border: 1px solid rgb(51, 51, 51);">
+                              <th style="padding: 0px; text-align: center;">
+                                     <a href="/champions/<%=champ.id%>"><%=champ.Name%></a>
+                                 
+                              </th>
+                        </tr>
+                         <tr>
+                              <td style="text-align: center;"><img src="/images/champ_img/<%=champ.id%>.jpg" width="50" height="100"></td>
+                        </tr>
+                  <%end%>
+      
+      </table>
+      </div>
+
+      <div >
+      <table style="width: 15%; position: absolute; top: 20.75%; left: 81.5%;">
+      
+            <%@champs_140 = Champion.all[140,13]%>
+                  <%@champs_140.collect do |champ|%>    
+                        <tr style="padding: 0px; border: 1px solid rgb(51, 51, 51);">
+                              <th style="padding: 0px; text-align: center;">
+                                    <a href="/champions/<%=champ.id%>"><%=champ.Name%></a>
+                              </th>
+                        </tr>
+                         <tr>
+                             <td style="text-align: center;"> <a href="/champions/<%=champ.id%>"><img src="/images/champ_img/<%=champ.id%>.jpg" width="50" height="100"></a></td>
+                        </tr>
+                  <%end%>
+      
+      </table>
+      </div>
+</div>
+<style>
+body {
+background-color: rgb(51, 51, 51);
+color: rgb(158,144,109);
+}
+
+a{  
+color: rgb(158,144,109);
+}
+</style>

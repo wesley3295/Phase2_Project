@@ -11,23 +11,30 @@
             <th><a href= "/champions/<%= @team.champions[4].id %>"><%= @team.champions[4].Name %></a></th>
         </tr>
         <tr>
-            <td><img height="600px" src="/images/champ_img/<%= @team.champions[0].id %>.jpg"></td>
-            <td><img height="600px" src="/images/champ_img/<%= @team.champions[1].id %>.jpg"></td>
-            <td><img height="600px" src="/images/champ_img/<%= @team.champions[2].id %>.jpg"></td>
-            <td><img height="600px" src="/images/champ_img/<%= @team.champions[3].id %>.jpg"></td>
-            <td><img height="600px" src="/images/champ_img/<%= @team.champions[4].id %>.jpg"></td>
+            <td><img width="315" height="600px" src="/images/champ_img/<%= @team.champions[0].id %>.jpg"></td>
+            <td><img width="315" height="600px" src="/images/champ_img/<%= @team.champions[1].id %>.jpg"></td>
+            <td><img width="315" height="600px" src="/images/champ_img/<%= @team.champions[2].id %>.jpg"></td>
+            <td><img width="315" height="600px" src="/images/champ_img/<%= @team.champions[3].id %>.jpg"></td>
+            <td><img width="315" height="600px" src="/images/champ_img/<%= @team.champions[4].id %>.jpg"></td>
         </tr>     
     </table>
 </div>
 
 
 
-<div style="position: absolute; left: 4%; top: 95%;">
+<div style="position: absolute; left: 65%; top: 13%;">
     <form action="/teams/<%= @team.id %>" method="post">
-        <a href="/teams/<%= @team.id %>/edit" class="btn">Edit Team</a>
+        <a href="/teams/<%= @team.id %>/edit" class="btn" style="background-color: rgb(158,144,109); color: black;">Edit Team</a>
             <input type="hidden" name="_method" value="delete">
-                <input type="submit" value="Remove Team" class="btn">
-                    <a href="/duels/<%= @team.id %>/new" class="btn">Duel Team</a>
+                <input type="submit" value="Remove Team" class="btn" style="background-color: rgb(158,144,109); color: black;">
+                    <a href="/duels/<%= @team.id %>/new" class="btn" style="background-color: rgb(158,144,109); color: black;">Duel Team</a>
     
     </form>
 </div>
+
+<style>
+body {
+background-color: rgb(51, 51, 51);
+color: rgb(158,144,109);
+}
+</style>

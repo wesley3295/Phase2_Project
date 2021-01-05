@@ -1,17 +1,208 @@
 
-<h1>Create a team!<h1>  
+<h3 style="position: absolute; top: 10%; left: 32%;">Create a team! Pick 5 Champions<h3>
+  
 <form action="/teams" method="post">     
-      <div class="input-field">           
-            <input id="team_name" name="user[team_name]" type="text" class="validate">           <label for="team_name">Team Name</label>     
+      <div class="input-field" style="width: 50%; position: absolute; top: 20%; left: 25%;">           
+            <input id="team_name" name="user[team_name]" type="text" class="validate">
+                  <label for="team_name">Team Name</label>
+
+                   <div style="position: absolute; left: 102%; top: 18.5%;">
+            <input type="submit" value="Create Team" class="btn" style="background-color: rgb(158,144,109); color: black;">
+            </div>     
       </div>  
-            <ul style="position:relative; column-count: 10; column-rule: dotted 1px #333; list-style-type: none;">      
-                  <%Champion.all.each do |champ|%>    
-                  <div class="form-row">    
-                        <label  style="color:black" class="container"><%=champ.Name%>     
-                              <input style="position:relative;" value="<%=champ.id%>" type="checkbox"  name="user[champion_ids][]" >
-                                    <span class="checkmark"></span>     
-                        </label>     
-                  </div>     
-                  <%end%>   
-            </ul>                   
-      <input type="submit" value="Create Team" class="btn">   </form>
+
+<div style="width: 100%; height: 100%; overflow-x: hidden;">
+
+      <div>
+      <table style="width: 15%; position: absolute; top: 30%; left: 0%;">
+      
+            <%@champs_19 = Champion.all[0,19]%>
+                  <%@champs_19.collect do |champ|%> 
+                        <tr style="padding: 0px;">
+                              <th style= "padding: 0px; text-align: center;">
+                                    <label  style=" margin: 0px 20px 0px 20px;" class="container">
+                                          <input value="<%=champ.id%>" type="checkbox"  name="user[champion_ids][]" >
+                                          <span ><%=champ.Name%></span>
+                                    </label>
+                           
+                             </th>
+                        </tr>
+                        <tr>
+                              <td style="text-align: center;"><img src="/images/champ_img/<%=champ.id%>.jpg" width="50" height="100"></td>
+                        </tr>
+                  <%end%>
+     
+      </table>
+      </div>
+      
+      <div>
+      <table style="width: 15%; position: absolute; top: 30%; left: 11.5%;">
+      
+            <%@champs_20 = Champion.all[20,19]%>
+                  <%@champs_20.collect do |champ|%>   
+                        <tr style="padding: 0px;">
+                              <th style="padding: 0px; text-align: center;">
+                                    <label  style=" margin: 0px 20px 0px 20px;" class="container">
+                                          <input value="<%=champ.id%>" type="checkbox"  name="user[champion_ids][]" >
+                                          <span><%=champ.Name%></span>
+                                    </label>
+                                 
+                              </th>
+                        </tr>
+                         <tr>
+                              <td style="text-align: center;"><img src="/images/champ_img/<%=champ.id%>.jpg" width="50" height="100"></td>
+                        </tr>
+                  <%end%>
+      
+      </table>
+      </div>
+
+      <div>
+      <table style="width: 15%; position: absolute; top: 30%; left: 22.5%;">
+      
+
+            <%@champs_40 = Champion.all[40,19]%>
+                  <%@champs_40.collect do |champ|%>    
+                        <tr style="padding: 0px;">
+                              <th style="padding: 0px;  text-align: center;">
+                                    <label  style=" margin: 0px 20px 0px 20px;" class="container">
+                                          <input value="<%=champ.id%>" type="checkbox"  name="user[champion_ids][]" >
+                                          <span><%=champ.Name%></span>
+                                    </label>
+                                 
+                              </th>
+                        </tr>
+                         <tr>
+                              <td style="text-align: center;"><img src="/images/champ_img/<%=champ.id%>.jpg" width="50" height="100"></td>
+                        </tr>
+                  <%end%>
+      
+      </table>
+      </div>
+
+      <div>
+      <table style="width: 15%; position: absolute; top: 30%; left: 33.5%;">
+      
+
+            <%@champs_60 = Champion.all[60,19]%>
+                  <%@champs_60.collect do |champ|%>    
+                        <tr style="padding: 0px;">
+                              <th style="padding: 0px; text-align: center;">
+                                    <label  style=" margin: 0px 20px 0px 20px;" class="container">
+                                          <input value="<%=champ.id%>" type="checkbox"  name="user[champion_ids][]" >
+                                          <span><%=champ.Name%></span>
+                                    </label>
+                                 
+                              </th>
+                        </tr>
+                         <tr>
+                              <td style="text-align: center;"><img src="/images/champ_img/<%=champ.id%>.jpg" width="50" height="100"></td>
+                        </tr>
+                  <%end%>
+      
+      </table>
+      </div>
+
+      <div>
+      <table style="width: 15%; position: absolute; top: 30%; left: 45.5%;">
+      
+            <%@champs_80 = Champion.all[80,19]%>
+                  <%@champs_80.collect do |champ|%>    
+                        <tr style="padding: 0px;">
+                              <th style="padding: 0px;  text-align: center;">
+                                    <label  style=" margin: 0px 20px 0px 20px;" class="container">
+                                          <input value="<%=champ.id%>" type="checkbox"  name="user[champion_ids][]" >
+                                          <span><%=champ.Name%></span>
+                                    </label>
+                                 
+                              </th>
+                        </tr>
+                         <tr>
+                              <td style="text-align: center;"><img src="/images/champ_img/<%=champ.id%>.jpg" width="50" height="100"></td>
+                        </tr>
+                  <%end%>
+      
+      </table>
+      </div>
+
+      <div>
+      <table style="width: 15%; position: absolute; top: 30%; left: 57.5%;">
+      
+            <%@champs_100 = Champion.all[100,19]%>
+                  <%@champs_100.collect do |champ|%>    
+                        <tr style="padding: 0px;">
+                              <th style="padding: 0px; text-align: center;">
+                                    <label  style=" margin: 0px 20px 0px 20px;" class="container">
+                                          <input value="<%=champ.id%>" type="checkbox"  name="user[champion_ids][]" >
+                                          <span><%=champ.Name%></span>
+                                    </label>
+                                 
+                              </th>
+                        </tr>
+                         <tr>
+                              <td style="text-align: center;"><img src="/images/champ_img/<%=champ.id%>.jpg" width="50" height="100"></td>
+                        </tr>
+                  <%end%>
+      
+      </table>
+      </div>
+
+      <div>
+      <table style="width: 15%; position: absolute; top: 30%; left: 69.5%;">
+      
+            <%@champs_120 = Champion.all[120,19]%>
+                  <%@champs_120.collect do |champ|%>    
+                        <tr style="padding: 0px;">
+                              <th style="padding: 0px; text-align: center;">
+                                    <label  style=" margin: 0px 20px 0px 20px;" class="container">
+                                          <input value="<%=champ.id%>" type="checkbox"  name="user[champion_ids][]" >
+                                          <span><%=champ.Name%></span>
+                                    </label>
+                                 
+                              </th>
+                        </tr>
+                         <tr>
+                              <td style="text-align: center;"><img src="/images/champ_img/<%=champ.id%>.jpg" width="50" height="100"></td>
+                        </tr>
+                  <%end%>
+      
+      </table>
+      </div>
+
+      <div>
+      <table style="width: 15%; position: absolute; top: 30%; left: 81.5%;">
+      
+            <%@champs_140 = Champion.all[139,14]%>
+                  <%@champs_140.collect do |champ|%>    
+                        <tr class="box" style="padding: 0px;">
+                              <th style="padding: 0px; text-align: center;">
+                                    <label  style=" margin: 0px 20px 0px 20px;" class="container">
+                                          <input value="<%=champ.id%>" type="checkbox"  name="user[champion_ids][]" >
+                                          <span><%=champ.Name%></span>
+                                    </label>
+                                 
+                              </th>
+                        </tr>
+                         <tr>
+                              <td style="text-align: center;"><img src="/images/champ_img/<%=champ.id%>.jpg" width="50" height="100"></td>
+                        </tr>
+                  <%end%>
+      
+      </table>
+      </div>
+                 <div style="position: absolute; left: 10%; top: 535%;">
+            <input type="submit" value="Create Team" class="btn" style="background-color: rgb(158,144,109); color: black;">
+            </div>    
+</form>
+</div>
+<style>
+body {
+background-color: rgb(51, 51, 51);
+color: rgb(158,144,109);
+}
+
+label {
+color: rgb(158,144,109)
+}
+</style>
+      
