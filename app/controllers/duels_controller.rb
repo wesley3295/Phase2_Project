@@ -15,22 +15,37 @@ class DuelsController < ApplicationController
     end
     
     post '/duel' do
-        @allied_values=[]
-        @enemy_values=[]
-        @enemy_team = Team.find_by_id(params[:enemy_team])
+        @allied_values = []         
+        @enemy_values = []         
+        @enemy_team = Team.find_by_id(params[:enemy_team])         
         @allied_team = Team.find_by_id(params[:current_user_team])
-        @allied_team.champions.collect do |champ|
-            @allied_stats=champ.attributes.except("Name", "Title","id","ChampionId") 
+        if current_user.id == @enemy_team.user_id
+            redirect "/users"
+        else         
+            @allied_team.champions.each do |champ|             
+                @allied_values << {:id =>champ.id,  :total => Hash[champ.attributes.except("ChampionId", "id", "Name", "Title").sort_by{|k,v| -v}].values.sum}
+            @allied_totals = @allied_values.sum { |hash| hash[:total] }     
+            end         
+            @enemy_team.champions.each do |champ|             
+                @enemy_values << {:id =>champ.id,  :total => Hash[champ.attributes.except("id","ChampionId", "Name", "Title").sort_by{|k,v| -v}].values.sum}
+            @enemy_totals = @enemy_values.sum { |hash| hash[:total] }    
+            end     
+            
+            if @enemy_totals > @allied_totals
+                @enemy_team.wins += 1
+                @allied_team.loses += 1
+                   
+            elsif @enemy_totals < @allied_totals
+                @enemy_team.loses += 1
+                @allied_team.wins += 1
+            
+            end
         end
-        @allied_stats.each do |k,v|
-            @allied_values << v  
-        end  
-        @enemy_team.champions.collect do |champ|
-            @enemy_stats=champ.attributes.except("Name", "Title","id","ChampionId") 
-        end
-        @enemy_stats.each do |k,v|
-            @enemy_values << v  
-        end  
+
+            @enemy_team.save
+            @allied_team.save
+        
+
         erb :'/duels/duel'
     end
 

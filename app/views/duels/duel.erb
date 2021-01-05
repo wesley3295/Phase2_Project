@@ -6,44 +6,83 @@
     <title>Document</title>
 </head>
 <body>
-<div style="position: absolute; left: 3%; top: 3%;">
-<% if @enemy_values.sum > @allied_values.sum %>
-    <h2>"Your Nexus has been destroyed!"</h2>
-    <% winning_team = @enemy_team%>
-    <div style="position: absolute; left: 3%; top: 55%;">
-    <h3>Winning team: <%= @enemy_team.team_name %></h3>
+
+
+    <% if @enemy_totals > @allied_totals%>
+
+    <div style="position: relative; left: 3%; top: 75%;">  
+        <h4>Your Nexus has been destroyed!</h4>
     </div>
+
+            <% winning_team = @enemy_team%> 
+
+    <div style="position: absolute; left: 50%; top: 8%;">
+
+        <img src="/images/champ_img/defeat1.png" width="153" height="151"> 
+    </div>
+
     <% else %>
-    <% winning_team = @allied_team %>
-    <h2>"Your have destroyed the enemy Nexus!"</h2>
-    <div style="position: absolute; left: 3%; top: 3%;">
-    <h3>Winning team: <%= @allied_team.team_name %></h3>
+
+    <div style="position: absolute; left:3%; top: 8%;">   
+        <h4>You have destroyed the enemy Nexus!</h4>
     </div>
-<% end %>
+
+            <% winning_team = @allied_team %>
+
+    <div style="position: absolute; left: 50%; top: 8%;">
+
+            <img src="/images/champ_img/victory.png"> 
+    </div>
+
+    <% end %>
+
+
+<div style="position: absolute; left: 3%; top: 25%;">
+    <table>   
+        <tr>     
+            <th style= "padding: 0px; text-align: center;"><a href= "/champions/<%= winning_team.champions[0].id %>"><%= winning_team.champions[0].Name %></a></th>     
+            <th style= "padding: 0px; text-align: center;"><a href= "/champions/<%= winning_team.champions[1].id %>"><%= winning_team.champions[1].Name %></a></th>     
+            <th style= "padding: 0px; text-align: center;"><a href= "/champions/<%= winning_team.champions[2].id %>"><%= winning_team.champions[2].Name %></a></th>     
+            <th style= "padding: 0px; text-align: center;"><a href= "/champions/<%= winning_team.champions[3].id %>"><%= winning_team.champions[3].Name %></a></th>     
+            <th style= "padding: 0px; text-align: center;"><a href= "/champions/<%= winning_team.champions[4].id %>"><%= winning_team.champions[4].Name %></a></th>
+        </tr>
+        <tr>
+            <td><img width="315" height="600px" src="/images/champ_img/<%= winning_team.champions[0].id %>.jpg"></td>
+            <td><img width="315" height="600px" src="/images/champ_img/<%= winning_team.champions[1].id %>.jpg"></td>
+            <td><img width="315" height="600px" src="/images/champ_img/<%= winning_team.champions[2].id %>.jpg"></td>
+            <td><img width="315" height="600px" src="/images/champ_img/<%= winning_team.champions[3].id %>.jpg"></td>
+            <td><img width="315" height="600px" src="/images/champ_img/<%= winning_team.champions[4].id %>.jpg"></td>
+        </tr>     
+    </table>
 </div>
 
-<p>
-    <% winning_team.champions.collect do |champ| %>
-    
-</p>
-    <% end %>
-<div style="position: absolute; left: 3%; top: 20%;">
-<table>   
-<tr>     
-<th><a href= "/champions/<%= winning_team.champions[0].id %>"><%= winning_team.champions[0].Name %></a></th>     
-<th><a href= "/champions/<%= winning_team.champions[1].id %>"><%= winning_team.champions[1].Name %></a></th>     
-<th><a href= "/champions/<%= winning_team.champions[2].id %>"><%= winning_team.champions[2].Name %></a></th>     
-<th><a href= "/champions/<%= winning_team.champions[3].id %>"><%= winning_team.champions[3].Name %></a></th>     
-<th><a href= "/champions/<%= winning_team.champions[4].id %>"><%= winning_team.champions[4].Name %></a></th>
-</tr>
-<tr>
-<td><img height="600px" src="/images/champ_img/<%= winning_team.champions[0].id %>.jpg"></td>
-<td><img height="600px" src="/images/champ_img/<%= winning_team.champions[1].id %>.jpg"></td>
-<td><img height="600px" src="/images/champ_img/<%= winning_team.champions[2].id %>.jpg"></td>
-<td><img height="600px" src="/images/champ_img/<%= winning_team.champions[3].id %>.jpg"></td>
-<td><img height="600px" src="/images/champ_img/<%= winning_team.champions[4].id %>.jpg"></td>
-</tr>     
-</table>
+<%if winning_team == @enemy_team%>
+<div class="teamscoretable">
+    <table>
+            <tr>
+                <th colspan="2"><%=@enemy_team.team_name%></th>
+            </tr>
+            <tr>
+                <td>Wins:<%=@enemy_team.wins%>
+                <td>Losses:<%=@enemy_team.loses%>
+            </tr>
+    </table>
 </div>
+    <%else%>
+<div class="teamscoretable">
+    <table>
+            <tr>
+                <th colspan="2"><%=@allied_team.team_name%></th>
+            </tr>
+            <tr>
+                <td>Wins:<%=@allied_team.wins%></td>
+                <td>Losses:<%=@allied_team.loses%></td>
+            </tr>
+           
+    </table>
+</div>
+<%end%>
+
 </body>
 </html>
+ 
