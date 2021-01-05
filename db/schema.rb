@@ -48,8 +48,10 @@ ActiveRecord::Schema.define(version: 20201230232514) do
   create_table "teams", force: :cascade do |t|
     t.string   "team_name"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "wins",       default: 0
+    t.integer  "loses",      default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "users", force: :cascade do |t|
