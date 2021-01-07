@@ -43,14 +43,9 @@ class UsersController < ApplicationController
     
     get '/users/:id' do
         @user = User.find_by_id(params[:id])
-        @user_wins = []
-    @user_loses = []
-    current_user.teams.collect do |team|
-      @user_wins << team.wins
-      @user_loses << team.loses
+        # binding.pry
+      erb :'users/show'
     
-        erb :'users/show'
-    end
 end
     
     # get '/users/:slug' do

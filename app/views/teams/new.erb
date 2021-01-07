@@ -16,8 +16,7 @@
       <div>
       <table style="width: 15%; position: absolute; top: 30%; left: 0%;">
       
-            <%@champs_19 = Champion.all[0,19]%>
-                  <%@champs_19.collect do |champ|%> 
+            <%Champion.all[0,19].collect do |champ| %>
                         <tr style="padding: 0px;">
                               <th style= "padding: 0px; text-align: center;">
                                     <label  style=" margin: 0px 20px 0px 20px;" class="container">

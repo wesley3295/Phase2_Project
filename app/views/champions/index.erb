@@ -4,8 +4,7 @@
       <div>
       <table style="width: 15%; position: absolute; top: 20.75%; left: 0%;">
       
-            <%@champs_19 = Champion.all[0,19]%>
-                  <%@champs_19.collect do |champ|%> 
+            <% Champion.all[0,19].collect do |champ|%>
                         <tr style="padding: 0px; border: 1px solid rgb(51, 51, 51);">
                               <th style= "padding: 0px; text-align: center;">
                                     <a href="/champions/<%=champ.id%>"><%=champ.Name%></a>
@@ -154,6 +153,7 @@
       </table>
       </div>
 </div>
+
 <style>
 body {
 background-color: rgb(51, 51, 51);

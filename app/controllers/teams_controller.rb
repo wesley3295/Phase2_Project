@@ -37,9 +37,13 @@ end
     end
     
     get '/teams/:id/edit' do
-      find_team
+      find_team   
       redirect_if_team_not_found
+      if authorized?
       erb :'teams/edit'
+      else 
+        redirect to "/teams/#{@team.id}"
+      end
     end
     
     patch '/teams/:id' do
@@ -72,6 +76,9 @@ end
         redirect "/teams" unless @team
       end
       
+      def authorized?
+        current_user == @team.user
+      end
     end
     
     # get '/teams/:slug' do

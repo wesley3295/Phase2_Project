@@ -1,26 +1,20 @@
 <h3><%= @team.team_name %>:</h3>
 <h6>Select a champion to see their stats:</h6>
 
-<p>
-    <% @team.champions.collect do |champ| %>
+
     
-</p>
-    <% end %>
+
 <div style="position: absolute; left: 3%; top: 20%;">
 <table>   
 <tr>     
-<th><a href= "/champions/<%= @team.champions[0].id %>"><%= @team.champions[0].Name %></a></th>     
-<th><a href= "/champions/<%= @team.champions[1].id %>"><%= @team.champions[1].Name %></a></th>     
-<th><a href= "/champions/<%= @team.champions[2].id %>"><%= @team.champions[2].Name %></a></th>     
-<th><a href= "/champions/<%= @team.champions[3].id %>"><%= @team.champions[3].Name %></a></th>     
-<th><a href= "/champions/<%= @team.champions[4].id %>"><%= @team.champions[4].Name %></a></th>
+    <% @team.champions.collect do |champ| %>
+<th><a href= "/champions/<%= champ.id %>"><%= champ.Name %></a></th>     
+    <% end %>
 </tr>
 <tr>
-<td><img height="600px" src="/images/champ_img/<%= @team.champions[0].id %>.jpg"></td>
-<td><img height="600px" src="/images/champ_img/<%= @team.champions[1].id %>.jpg"></td>
-<td><img height="600px" src="/images/champ_img/<%= @team.champions[2].id %>.jpg"></td>
-<td><img height="600px" src="/images/champ_img/<%= @team.champions[3].id %>.jpg"></td>
-<td><img height="600px" src="/images/champ_img/<%= @team.champions[4].id %>.jpg"></td>
+    <% @team.champions.collect do |champ| %>
+<td><img height="600px" src="/images/champ_img/<%=champ.id %>.jpg"></td>
+    <% end %>
 </tr>     
 </table>
 </div>

@@ -4,18 +4,15 @@
 <div style="position: absolute; left: 3%; top: 20%;">
     <table>   
         <tr>     
-            <th><a href= "/champions/<%= @team.champions[0].id %>"><%= @team.champions[0].Name %></a></th>     
-            <th><a href= "/champions/<%= @team.champions[1].id %>"><%= @team.champions[1].Name %></a></th>     
-            <th><a href= "/champions/<%= @team.champions[2].id %>"><%= @team.champions[2].Name %></a></th>     
-            <th><a href= "/champions/<%= @team.champions[3].id %>"><%= @team.champions[3].Name %></a></th>     
-            <th><a href= "/champions/<%= @team.champions[4].id %>"><%= @team.champions[4].Name %></a></th>
+    <%@team.champions.each do |champion|%>
+            <th><a href= "/champions/<%= champion.id %>"><%= champion.Name %></a></th>     
+    <%end%>
         </tr>
         <tr>
-            <td><img width="315" height="600px" src="/images/champ_img/<%= @team.champions[0].id %>.jpg"></td>
-            <td><img width="315" height="600px" src="/images/champ_img/<%= @team.champions[1].id %>.jpg"></td>
-            <td><img width="315" height="600px" src="/images/champ_img/<%= @team.champions[2].id %>.jpg"></td>
-            <td><img width="315" height="600px" src="/images/champ_img/<%= @team.champions[3].id %>.jpg"></td>
-            <td><img width="315" height="600px" src="/images/champ_img/<%= @team.champions[4].id %>.jpg"></td>
+    <%@team.champions.each do |champion|%>
+            <td><img width="315" height="600px" src="/images/champ_img/<%= champion.id %>.jpg"></td>
+<%end%>
+
         </tr>     
     </table>
 </div>
@@ -23,14 +20,19 @@
 
 
 <div style="position: absolute; left: 65%; top: 13%;">
+    <%if authorized?%>
     <form action="/teams/<%= @team.id %>" method="post">
         <a href="/teams/<%= @team.id %>/edit" class="btn" style="background-color: rgb(158,144,109); color: black;">Edit Team</a>
             <input type="hidden" name="_method" value="delete">
                 <input type="submit" value="Remove Team" class="btn" style="background-color: rgb(158,144,109); color: black;">
                     <a href="/duels/<%= @team.id %>/new" class="btn" style="background-color: rgb(158,144,109); color: black;">Duel Team</a>
-    
     </form>
 </div>
+                    <%else%>
+                    <a href="/duels/<%= @team.id %>/new" class="btn" style="background-color: rgb(158,144,109); color: black;">Duel Team</a>
+</div>
+<%end%>
+    
 
 <style>
 body {
