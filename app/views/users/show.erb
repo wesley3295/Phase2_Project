@@ -8,15 +8,15 @@
 <tr>
 <th style="padding: 3px; text-align: center; color: rgb(55, 55, 55)">Teams</th>
 </tr>
-    <% Team.all.each do |team| 
-        if team.user_id  == @user.id %>
+    <% @user.teams.each do |team| %>
+        
         
 <tr>
 <th style="padding: 3px; text-align: center;">
                     <a style="color: black;" href= "/teams/<%=team.id%>"><%= team.team_name %></a><br>
 </th>
 </tr>
-    <% end %> 
+ 
     
 <% end %>
 </table>

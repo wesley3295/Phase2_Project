@@ -35,23 +35,31 @@ class UsersController < ApplicationController
         redirect '/login'
     end
     
+    get '/users/most_teams' do
+        @user = User.all.max_by{|u| u.teams.length}
+        erb :'users/most_teams'
+    end
+    
     get '/users' do
         @users = User.all
        
         erb :'users/index'
     end
     
+    
     get '/users/:id' do
         @user = User.find_by_id(params[:id])
         # binding.pry
       erb :'users/show'
-    
-end
+      end
     
     # get '/users/:slug' do
     #     @user = User.find_by_id(params[:slug])
     #     erb :'users/show'
     # end
     
-    
+
 end
+
+#Write a custom route so that a user can visit /users/most-teams and the user is then able to see (you can pick how) the user with the most team
+#HINT: Use the max_by Ruby method to help you find the user with the most teams 
